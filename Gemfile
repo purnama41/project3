@@ -58,3 +58,6 @@ gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 gem 'jquery-rails'
 gem 'jquery'
+
+#pagination
+gem 'kaminari'
