@@ -25,3 +25,17 @@
 .alert-notice {
   @extend .alert-info;
 }
+
+#product {
+  img {
+    height: 150px;
+    width: 120px;
+  }
+
+  h3 {
+    font-size: 100%;
+    font-family: sans-serif;
+    margin-bottom: 2px;
+    color: #227;
+  }
+}
