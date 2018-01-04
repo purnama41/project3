@@ -62,3 +62,27 @@ Product.create!(title: 'Rails Framework',
       </p>},
   image_url: 'rails.png',
   price: 42.50)
+
+Product.create!(title: 'Agile Web Depelopment with Rails 4',
+  description:
+    %{<p>Book Tutorial Ruby on Rails</p>},
+  image_url: 'ruby.jpg',
+  price: 34.60)
+
+Product.create!(title: "Expert Ruby on Rails 5",
+  description:
+    %{<p>This book will make you an expert programmer Ruby on Rails in few time study.</p>},
+  image_url: "expert_ruby.jpg",
+  price: 39.20)
+
+Product.create!(title: "Agile Web Depelopment with Rails 5",
+  description:
+    %{<p>Ruby on Rails 5 is the best framework for build a website.</p>},
+  image_url: "rails5.jpg",
+  price: 43.60)
+
+Product.create!(title: 'Learning Rails 5',
+  description:
+    %{<p>This is right book to become Ruby on Rails Programmer</p>},
+  image_url: "learning_rails5.jpg",
+  price: 33.50)
