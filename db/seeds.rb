@@ -86,3 +86,5 @@ Product.create!(title: 'Learning Rails 5',
     %{<p>This is right book to become Ruby on Rails Programmer</p>},
   image_url: "learning_rails5.jpg",
   price: 33.50)
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

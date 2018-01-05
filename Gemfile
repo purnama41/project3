@@ -62,3 +62,7 @@ gem 'jquery-ui-rails'
 
 #pagination
 gem 'kaminari'
+
+#active admin
+gem 'activeadmin'
+gem 'cancan' # or cancancan
