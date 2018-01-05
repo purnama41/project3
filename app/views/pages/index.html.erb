@@ -6,8 +6,8 @@
   <% end %>
     <div class="container">
       <% if user_signed_in? %>
-        <h3>Welcome <%= current_user.name %></h3>
-        <p style="font-style: italic;">Happy shooping...</p>
+          <!--h3>Welcome <%= current_user.name %></h3>
+          <p style="font-style: italic;">Happy shooping...</p-->
       <% else %>
         <h1>Welcome!</h1>
         <p>Register to get started.</p>
@@ -20,21 +20,24 @@
 
   <% if user_signed_in? %>
   <div class="container" id="product">
-    <p id="notice"><%= notice %></p>
+    <!--p id="notice"><%= notice %></p-->
     <h1>Books Catalog</h1>
     <br>
-    <% @products.each do |product| %>
-      <div class="col-md-2 col-sm-2">
-        <%= image_tag(product.image_url) %>
-        <h3><%= product.title %></h3>
-        
-        <div class="price_line">
-          <span class="price"><%= number_to_currency(product.price) %></span>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-xs btn-success' %>
-        </div>
-      </div>
+    <% cache @products do %>
+      <% @products.each do |product| %>
+        <% cache product do %>
+          <div class="col-md-2 col-sm-2">
+            <%= image_tag(product.image_url) %>
+            <h3><%= product.title %></h3>
+            
+            <div class="price_line">
+              <span class="price"><%= number_to_currency(product.price) %></span>
+              <%= button_to 'Add to Cart', line_items_path(product_id: product),remote: true, class: 'btn btn-xs btn-success' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-
     <div class="col-md-12">
     <%= paginate @products %>
     <%= page_entries_info @products %>

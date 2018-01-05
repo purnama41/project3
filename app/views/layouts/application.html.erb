@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -18,7 +19,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
             <% if user_signed_in? %>
-            <li><%= link_to 'History', history_path %></li>
+            <li><%= link_to 'History', orders_path %></li>
             <% end %>
           </ul>
           <ul class="nav navbar-nav pull-right">
@@ -43,11 +44,23 @@
     </nav>
 
     <div class="container">
+      <div class="col-md-5 col-sm-10 col-centered">
+        <div id="cart" class="alert-success">
+          <% if @cart %>
+            <%= render @cart %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    <div class="col-md-12 col-sm-12 col-centered">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
           <%= value %>
         </div>
       <% end %>
+    </div>
     </div>
 
     <%= yield :top_content %>
